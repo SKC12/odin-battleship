@@ -1,25 +1,22 @@
 const Ship = (squares) => {
-  const health = [];
+  const health = squares;
 
-  for (let i = 0; i < squares; i++) {
-    health.push("O");
-  }
+  let damage = 0;
+
+  // for (let i = 0; i < squares; i++) {
+  //   health.push("O");
+  // }
 
   const getHealth = () => {
     return health;
   };
 
-  const hit = (target) => {
-    health[target] = "X";
+  const hit = () => {
+    damage++;
   };
 
   const isSunk = () => {
-    for (let i = 0; i < squares; i++) {
-      if (health[i] === "O") {
-        return false;
-      }
-    }
-    return true;
+    return damage >= health;
   };
 
   return { getHealth, hit, isSunk };
