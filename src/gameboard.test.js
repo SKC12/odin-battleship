@@ -25,6 +25,14 @@ test("Adding ship", () => {
   expect(() => gameboard.addShip(0, 8, "vertical", ship)).toThrow(
     "Invalid Placement"
   );
+
+  expect(() => gameboard.addShip(5, 4, "horizontal", ship)).toThrow(
+    "Invalid Placement"
+  );
+
+  expect(() => gameboard.addShip(1, 0, "vertical", ship)).toThrow(
+    "Invalid Placement"
+  );
 });
 
 test("receive attack", () => {
