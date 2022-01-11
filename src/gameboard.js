@@ -36,7 +36,7 @@ const Gameboard = () => {
   function validPlacement(x, y, length, direction) {
     if (direction === "horizontal") {
       for (let i = 0; i < length; i++) {
-        if (x + length >= 10) {
+        if (x + length > 10) {
           return false;
         }
         if (board[x + i][y] !== ".") {
@@ -46,7 +46,7 @@ const Gameboard = () => {
       return true;
     } else {
       for (let i = 0; i < length; i++) {
-        if (y + length >= 10) {
+        if (y + length > 10) {
           return false;
         }
         if (board[x][y + i] !== ".") {

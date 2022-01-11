@@ -27,10 +27,21 @@ const Player = (isAI) => {
   };
 
   const attackAI = () => {
-    let attack = {
-      x: getRandomInt(0, 9),
-      y: getRandomInt(0, 9),
-    };
+    let valid = false;
+    let attack;
+    while (!valid) {
+      attack = {
+        x: getRandomInt(0, 9),
+        y: getRandomInt(0, 9),
+      };
+      if (
+        !sentAttacks.some((atk) => {
+          return atk.x === attack.x && atk.y === attack.y;
+        })
+      ) {
+        valid = true;
+      }
+    }
     sentAttacks.push(attack);
     return attack;
   };
